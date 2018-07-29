@@ -5,17 +5,17 @@ import louchtch.distribsysremake.game.board.GameBoard;
 public abstract class BasePlayer implements Player
 {
 	private PlayerHP hp;
-	private BoardLocation location;
+	private BoardSquare location;
 	private GameBoard gameBoard;
 
-	public BasePlayer(GameBoard gameBoard, PlayerHP hp, BoardLocation location)
+	public BasePlayer(GameBoard gameBoard, PlayerHP hp, BoardSquare location)
 	{
 		this.gameBoard = gameBoard;
 		this.hp = hp;
 		this.location = location;
 	}
 
-	public BoardLocation location()
+	public BoardSquare location()
 	{
 		return location;
 	}

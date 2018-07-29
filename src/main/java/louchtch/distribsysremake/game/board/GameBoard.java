@@ -1,29 +1,23 @@
 package louchtch.distribsysremake.game.board;
 
-import louchtch.distribsysremake.game.player.BoardLocation;
+import louchtch.distribsysremake.game.player.BoardSquare;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class GameBoard
 {
-	BoardLocation[][] playersOnBoard;
+	BoardSquare[][] boardSquares;
 
-	public Collection<BoardLocation> unoccupiedLocations()
+	public Collection<BoardSquare> unoccupiedSquares()
 	{
-		var emptyLocations = new ArrayList<BoardLocation>();
+		Predicate<BoardSquare> squareIsUnoccupied = ((Predicate<BoardSquare>) BoardSquare::isOccupied).negate();
 
-		for (var row : playersOnBoard)
-		{
-			for (var boardLocation : row)
-			{
-				if (boardLocation.isOccupied())
-				{
-					emptyLocations.add(boardLocation);
-				}
-			}
-		}
-
-		return emptyLocations;
+		return Arrays.stream(boardSquares).flatMap(Arrays::stream)
+				.filter(squareIsUnoccupied)
+				.collect(Collectors.toUnmodifiableList());
 	}
 }

@@ -2,7 +2,7 @@ package louchtch.distribsysremake.game.player;
 
 import java.util.Optional;
 
-public class BoardLocation
+public class BoardSquare
 {
 	private Optional<Player> playerOnLocation;
 
