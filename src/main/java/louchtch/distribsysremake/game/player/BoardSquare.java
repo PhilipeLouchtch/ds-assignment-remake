@@ -5,8 +5,9 @@ import java.util.Optional;
 public class BoardSquare
 {
 	private Optional<Player> playerOnLocation;
+	private Coordinate associatedLocation;
 
-	public boolean isOccupied()
+	public boolean occupied()
 	{
 		return !playerOnLocation.isPresent();
 	}
