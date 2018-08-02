@@ -11,7 +11,7 @@ public class Coordinate
 		this.y = y;
 	}
 
-	public static Coordinate of(int x, int y)
+	public static Coordinate at(int x, int y)
 	{
 		return new Coordinate(x, y);
 	}
