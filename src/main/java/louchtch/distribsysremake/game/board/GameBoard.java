@@ -1,6 +1,7 @@
 package louchtch.distribsysremake.game.board;
 
 import louchtch.distribsysremake.game.player.BoardSquare;
+import louchtch.distribsysremake.game.player.Player;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,5 +46,19 @@ public class GameBoard
 				.filter(squareIsUnoccupied)
 				.collect(toUnmodifiableList());
 	}
+
+	/**
+	 * Places the player on a random location on the GameBoard
+	 * @param player The player to place
+	 */
+	public void place(Player player)
+	{
+		Collection<BoardSquare> boardSquares = unoccupiedSquares();
+
+		BoardSquare randomEmptySquare = boardSquares.stream().skip(new Random().nextInt(boardSquares.size()))
+				.findFirst()
+				.orElseThrow(() -> new RuntimeException("Cannot place player {} on board: no unoccupied locations found"));
+
+		randomEmptySquare.place(player);
 	}
 }

@@ -35,4 +35,17 @@ public class BoardSquare
 				() -> new RuntimeException("Attempt to get player from board location that does not have a player")
 		);
 	}
+
+	public void place(Player player)
+	{
+		if (playerOnLocation.isPresent())
+		{
+			throw new RuntimeException("Cannot place player {}: square already occupied");
+		}
+		else
+		{
+			playerOnLocation = Optional.of(player);
+		}
+
+	}
 }
