@@ -11,4 +11,10 @@ public class Game
 	{
 		this.gameBoard = gameBoard;
 	}
+
+	public static Game newGame()
+	{
+		GameBoard gameBoard = GameBoard.freshEmptyBoard(25);
+		return new Game(gameBoard);
+	}
 }
