@@ -6,8 +6,9 @@ public class God
 {
 	public static Game createNewGame()
 	{
-		var gameBoard = new GameBoard();
+		int boardDimension = 25;
+		var gameBoard = GameBoard.freshEmptyBoard(boardDimension);
 
-		return new Game(null);
+		return new Game(gameBoard);
 	}
 }
