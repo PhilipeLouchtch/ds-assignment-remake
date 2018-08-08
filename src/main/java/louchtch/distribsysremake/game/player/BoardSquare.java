@@ -7,10 +7,10 @@ import java.util.Optional;
 
 public class BoardSquare
 {
-	private Optional<Player> playerOnLocation;
+	private Optional<PlacedPlayer> playerOnLocation;
 	private Coordinate associatedLocation;
 
-	private BoardSquare(Optional<Player> playerOnLocation, Coordinate associatedLocation)
+	private BoardSquare(Optional<PlacedPlayer> playerOnLocation, Coordinate associatedLocation)
 	{
 		this.playerOnLocation = playerOnLocation;
 		this.associatedLocation = associatedLocation;
@@ -36,7 +36,7 @@ public class BoardSquare
 		);
 	}
 
-	public void place(Player player)
+	public PlacedPlayer place(Player player)
 	{
 		if (playerOnLocation.isPresent())
 		{
@@ -46,6 +46,5 @@ public class BoardSquare
 		{
 			playerOnLocation = Optional.of(player);
 		}
-
 	}
 }

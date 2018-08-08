@@ -1,6 +1,9 @@
 package louchtch.distribsysremake.game.player;
 
+import louchtch.distribsysremake.game.player.hp.PlayerHP;
+
 public interface Player
 {
-	BoardSquare location();
+	PlayerHP health();
+	boolean dead();
 }
